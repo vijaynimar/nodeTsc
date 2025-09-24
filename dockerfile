@@ -13,9 +13,6 @@ COPY . .
 # Copy .env for Prisma
 COPY .env .env
 
-# Install TypeScript globally
-RUN npm install -g typescript
-
 # Generate Prisma client (for Linux, needed in container)
 RUN npx prisma generate
 
