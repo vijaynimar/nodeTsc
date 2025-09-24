@@ -2,12 +2,14 @@ import express from "express";
 import bodyParser from 'body-parser';
 import router from "./routes/router.js";
 const app = express();
-// app.use(express.json())
 app.use(bodyParser.json({ limit: '50mb' }));
-const PORT = 8000;
-const HOST = String(process.env.HOST) || "localhost";
+const PORT = parseInt(process.env.PORT || "8000", 10);
 app.use("/api", router);
+// Simple health check
+app.get("/", (req, res) => {
+    res.send("Server is running!");
+});
 app.listen(PORT, () => {
-    console.log(`server started at port ${PORT}`);
+    console.log(`Server started on port ${PORT}`);
 });
 //# sourceMappingURL=server.js.map
