@@ -1,8 +1,10 @@
 import express from "express"
 import bodyParser from 'body-parser';
+import cors from "cors"
 import router from "./routes/router.js"
 
 const app=express()
+app.use(cors())
 app.use(bodyParser.json({ limit: '50mb' }));
 
 const PORT = parseInt(process.env.PORT || "8000", 10)
