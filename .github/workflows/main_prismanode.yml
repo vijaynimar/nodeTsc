@@ -1,9 +1,9 @@
-name: Build and deploy Node.js + Prisma app to Azure App Service
+name: Build and deploy Node.js + Prisma + MongoDB app to Azure App Service
 
 on:
   push:
     branches:
-      - main   # 👈 change if your branch is different
+      - main
   workflow_dispatch:
 
 jobs:
@@ -31,10 +31,6 @@ jobs:
       # Generate Prisma client
       - name: Prisma generate
         run: npm run prisma:generate
-
-      # Run Prisma migrations (optional — remove if you want manual control)
-      - name: Prisma migrate
-        run: npm run prisma:migrate
 
       # Build TypeScript
       - name: Build project
