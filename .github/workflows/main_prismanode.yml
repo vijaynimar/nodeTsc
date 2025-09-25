@@ -27,10 +27,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Generate Prisma client
-      - name: Prisma generate
-        run: npm run prisma:generate
-
       # Build TypeScript
       - name: Build project
         run: npm run build
@@ -40,11 +36,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: |
-            dist/src
-            dist/prisma
-            package*.json
-            node_modules/@prisma/client
+          path: .
 
   deploy:
     runs-on: ubuntu-latest
