@@ -6,17 +6,13 @@ let prismaClient: PrismaClient;
 export const getPrismaClient = (): PrismaClient => {
   if (!prismaClient) {
     prismaClient = new PrismaClient({
-      log: ['warn', 'error'],
+      log:['warn', 'error'],
     });
   }
+
   return prismaClient;
 };
 
 export type IPrismaClient =
   | PrismaClient
   | Omit<PrismaClient, ITXClientDenyList>;
-
-// Graceful shutdown
-process.on('beforeExit', async () => {
-  if (prismaClient) await prismaClient.$disconnect();
-});

@@ -8,9 +8,4 @@ export const getPrismaClient = () => {
     }
     return prismaClient;
 };
-// Graceful shutdown
-process.on('beforeExit', async () => {
-    if (prismaClient)
-        await prismaClient.$disconnect();
-});
 //# sourceMappingURL=prisma-client.js.map
