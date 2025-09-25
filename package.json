@@ -13,13 +13,11 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "@prisma/client": "^6.16.2",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "express": "^5.1.0",
-    "prisma": "^6.16.2",
     "typescript": "^5.0.0"
   }
 }
