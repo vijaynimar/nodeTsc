@@ -1,4 +1,4 @@
-name: Build and deploy Node.js + Prisma + MongoDB app to Azure App Service
+name: Build and deploy Node.js + MongoDB app to Azure App Service
 
 on:
   push:
@@ -23,6 +23,12 @@ jobs:
         with:
           node-version: '20.x'
 
+      # Clean old files
+      - name: Clean workspace
+        run: |
+          rm -rf node_modules
+          rm -rf dist
+
       # Install dependencies
       - name: Install dependencies
         run: npm install
@@ -31,7 +37,7 @@ jobs:
       - name: Build project
         run: npm run build
 
-      # Upload required files including Prisma client runtime
+      # Upload required files for deployment
       - name: Upload artifact for deployment
         uses: actions/upload-artifact@v4
         with:
@@ -53,7 +59,7 @@ jobs:
       - name: Install production dependencies
         run: npm install --production
 
-      # Start Azure deployment
+      # Deploy to Azure Web App
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
