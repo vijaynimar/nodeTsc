@@ -1,18 +1,15 @@
 import { PrismaClient } from '@prisma/client';
-import type { ITXClientDenyList } from '@prisma/client/runtime/library';
 
 let prismaClient: PrismaClient;
 
 export const getPrismaClient = (): PrismaClient => {
   if (!prismaClient) {
     prismaClient = new PrismaClient({
-      log:['warn', 'error'],
+      log: ['warn', 'error'],
     });
   }
-
   return prismaClient;
 };
 
-export type IPrismaClient =
-  | PrismaClient
-  | Omit<PrismaClient, ITXClientDenyList>;
+// Optional type alias if you want, but no ITXClientDenyList
+export type IPrismaClient = PrismaClient;
