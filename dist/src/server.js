@@ -5,7 +5,7 @@ import router from "./routes/router.js";
 const app = express();
 app.use(cors());
 app.use(bodyParser.json({ limit: '50mb' }));
-const PORT = parseInt(process.env.PORT || "8000", 10);
+const PORT = parseInt(process.env.PORT || "8000");
 app.use("/api", router);
 // Simple health check
 app.get("/", (req, res) => {

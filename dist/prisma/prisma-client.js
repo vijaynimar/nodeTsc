@@ -1,11 +1,7 @@
-import { PrismaClient } from '@prisma/client';
-let prismaClient;
+import Prisma from '@prisma/client';
+export const prisma = new Prisma.PrismaClient();
 export const getPrismaClient = () => {
-    if (!prismaClient) {
-        prismaClient = new PrismaClient({
-            log: ['warn', 'error'],
-        });
-    }
-    return prismaClient;
+    return prisma;
 };
+export default prisma;
 //# sourceMappingURL=prisma-client.js.map

@@ -7,7 +7,7 @@ const app=express()
 app.use(cors())
 app.use(bodyParser.json({ limit: '50mb' }));
 
-const PORT = parseInt(process.env.PORT || "8000", 10)
+const PORT = parseInt(process.env.PORT || "8000")
 
 app.use("/api",router)
 
@@ -15,7 +15,7 @@ app.use("/api",router)
 app.get("/", (req, res) => {
     res.send("Server is running!");
 });
-
+ 
 app.listen(PORT, "0.0.0.0",()=>{
     console.log(`Server started on port ${PORT}`);
 })
